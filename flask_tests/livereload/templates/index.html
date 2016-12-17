@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ title|safe }}
+    {{ body|md|safe }}
+    {{ read_md('http_methods.md')|md|safe }}
+
+    {% with %}
+    {% set links=[
+        {'label':'Home', 'href':url_for('.index')},
+        {'label':'About', 'href':url_for('.about')}
+    ]%}
+
+
+    <nav>
+        {% for link in links %}
+            {% if not loop.first %} | {% endif %}
+            <a href="{{ link.href }}">{{ link.label }}
+        {% endfor %}
+    </nav>
+
+    {% endwith %}
+
+</body>
+</html>

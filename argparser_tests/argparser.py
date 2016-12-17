@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 parser = argparse.ArgumentParser(description='Description of your program')
 parser.add_argument('-f','--foo', help='Description for foo argument', required=True)
@@ -8,8 +7,6 @@ args = vars(parser.parse_args())
 
 
 def main():
-    #args = sys.argv
-    #print(args)
     if args['foo'] == 'Hello':
         print (args['foo'])
     if args['bar'] == 'World':

@@ -1,8 +1,9 @@
-import ConfigParser
-Config = ConfigParser.ConfigParser()
+import configparser
+Config = configparser.ConfigParser()
 Config.read('example.ini')
 
-def ConfigSectionMap(section):
+
+def config_section_map(section):
     dict1 = {}
     options = Config.options(section)
     for option in options:
@@ -15,6 +16,6 @@ def ConfigSectionMap(section):
             dict1[option] = None
     return dict1
 
-Name = ConfigSectionMap("SectionOne")['name']
-Age = ConfigSectionMap("SectionOne")['age']
-print "Hello %s. You are %s years old." % (Name, Age)
+Name = config_section_map("SectionOne")['name']
+Age = config_section_map("SectionOne")['age']
+print("Hello %s. You are %s years old." % (Name, Age))

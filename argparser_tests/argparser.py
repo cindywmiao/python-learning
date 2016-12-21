@@ -12,5 +12,4 @@ def main():
     if args['bar'] == 'World':
         print (args['bar'])
 
-
 if __name__ == '__main__':main()

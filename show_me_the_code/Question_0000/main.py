@@ -10,9 +10,9 @@ def change_image(input_path, output_path):
     dr = ImageDraw.Draw(im)
     font = ImageFont.truetype('msyh.ttf', 34)
     dr.text((im.size[0] * 0.75, im.size[1] * 0.05), text, font=font, fill="#ff0000")
-
-    im.save(output_path)
     im.slow()
+    im.save(output_path)
+
 
 def main():
     parser = argparse.ArgumentParser(description='Description of your program')

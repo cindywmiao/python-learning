@@ -1,0 +1,16 @@
+<workflow-app name="cindy-test-workflow" xmlns="uri:oozie:workflow:0.5">
+    <start to="email-938c"/>
+    <kill name="Kill">
+        <message>L&#39;action a échoué, message d&#39;erreur[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <action name="email-938c">
+        <email xmlns="uri:oozie:email-action:0.1">
+            <to>cwang@coupang.com</to>
+            <subject>Hello, this is test workflow</subject>
+            <body>Hello, this is the new email</body>
+        </email>
+        <ok to="End"/>
+        <error to="Kill"/>
+    </action>
+    <end name="End"/>
+</workflow-app>
